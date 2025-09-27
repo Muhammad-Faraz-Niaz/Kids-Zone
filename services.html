@@ -1,0 +1,3443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Zone Navbar</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: cornsilk;
+        }
+
+        .navbar {
+            background: rgb(248, 133, 153);
+            box-shadow: 0px 4px 15px black;
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar-brand img {
+            height: 60px;
+            animation: bounceLogo 2s infinite;
+            border-radius: 30px;
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: cornsilk;
+            margin: 5px;
+            transition: all 0.4s ease;
+        }
+
+        .nav-link:hover {
+            background: linear-gradient(90deg, rgb(247, 167, 167), rgb(233, 207, 158), rgb(226, 226, 140), rgb(146, 243, 146), rgb(122, 122, 230), rgb(203, 148, 243), rgb(240, 172, 240));
+            color: black;
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0px 0px 15px palevioletred;
+        }
+
+        .nav-link::before,
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            background: cornsilk;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .nav-link::before {
+            width: 25px;
+            height: 25px;
+            top: -10px;
+            left: 10px;
+        }
+
+        .nav-link::after {
+            width: 20px;
+            height: 20px;
+            bottom: -8px;
+            right: 15px;
+        }
+
+        @keyframes bounceLogo {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes rainbowGlow {
+            0% {
+                box-shadow: 0 0 5px red;
+            }
+
+            20% {
+                box-shadow: 0 0 10px orange;
+            }
+
+            40% {
+                box-shadow: 0 0 15px yellow;
+            }
+
+            60% {
+                box-shadow: 0 0 15px green;
+            }
+
+            80% {
+                box-shadow: 0 0 15px blue;
+            }
+
+            100% {
+                box-shadow: 0 0 20px violet;
+            }
+        }
+
+
+        .nav-link:hover {
+            animation: rainbowGlow 1.5s infinite alternate;
+        }
+
+
+        .hero {
+            background: linear-gradient(135deg, rgb(248, 162, 176) 0%, rgb(156, 220, 241) 100%);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgb(53, 52, 52);
+            font-family: Gabriola;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            color: rgb(65, 63, 63);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .hero a {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 25px;
+            background: linear-gradient(90deg, rgb(241, 171, 171), rgb(231, 205, 156), rgb(235, 235, 166), rgb(162, 238, 162), rgb(153, 153, 230), rgb(198, 152, 231), rgb(233, 167, 233));
+            color: black;
+            border-radius: 30px;
+            text-decoration: none;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 50px 0 20px;
+            font-size: 2rem;
+            color: rgb(46, 45, 45);
+        }
+
+        .card img {
+            max-height: 150px;
+            object-fit: contain;
+        }
+
+        .cloud-card {
+            border-radius: 50% 50% 40% 40%;
+            padding: 20px;
+            text-align: center;
+            color: rgb(54, 54, 54);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+            min-width: 180px;
+            min-height: 180px;
+            transition: transform 0.3s;
+        }
+
+        .cloud-card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-img {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+        }
+
+        .bg-1 {
+            background-color: rgb(216, 199, 202);
+        }
+
+        .bg-2 {
+            background-color: rgb(201, 134, 201);
+        }
+
+        .bg-3 {
+            background-color: rgb(248, 167, 248);
+        }
+
+        .bg-4 {
+            background-color: rgb(166, 166, 238);
+        }
+
+        .bg-5 {
+            background-color: rgb(196, 177, 177);
+        }
+
+        .bg-6 {
+            background-color: rgb(248, 139, 139);
+        }
+
+        .bg-7 {
+            background-color: rgb(241, 206, 141);
+        }
+
+        .bg-8 {
+            background-color: rgb(166, 231, 166);
+        }
+
+
+        :root {
+            --bg: rgb(230, 230, 235);
+            --cloud: rgb(182, 182, 229);
+            --rope: rgb(155, 155, 238);
+            --star-size: 64px;
+            --gap: 14px;
+            --cols: 10;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: var(--bg);
+            color: rgb(58, 54, 54)
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 18px auto;
+            padding: 22px;
+            box-sizing: border-box;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
+            border-radius: 14px;
+            box-shadow: 0 6px 20px rgba(20, 30, 60, 0.08);
+            position: relative;
+            min-height: 760px;
+            overflow: hidden;
+        }
+
+
+        .clouds {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 170px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .cloud {
+            width: 280px;
+            height: 90px;
+            margin: 0 18px;
+            background: var(--cloud);
+            border-radius: 50px;
+            box-shadow: -40px 10px 0 rgba(108, 147, 206, 0.6), 40px 6px 0 rgba(70, 142, 250, 0.6);
+            transform: translateY(12px);
+            opacity: 0.98;
+            position: relative;
+        }
+
+        .cloud:before,
+        .cloud:after {
+            content: "";
+            position: absolute;
+            background: var(--cloud);
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            top: -45px;
+        }
+
+        .cloud:before {
+            left: 18px;
+        }
+
+        .cloud:after {
+            right: 18px;
+            transform: scale(0.9);
+        }
+
+
+        .grid {
+            margin-top: 120px;
+
+            display: grid;
+            grid-template-columns: repeat(var(--cols), 1fr);
+            gap: var(--gap);
+            padding: 18px 28px 48px;
+            justify-items: center;
+            align-items: start;
+        }
+
+        .star-wrap {
+            width: var(--star-size);
+            height: 150px;
+
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            position: relative;
+        }
+
+
+        .star-wrap::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            background: var(--rope);
+            height: 85px;
+            border-radius: 3px;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+        }
+
+
+        .star {
+            width: var(--star-size);
+            height: var(--star-size);
+            margin-top: 85px;
+
+            display: inline-grid;
+            place-items: center;
+            border-radius: 6px;
+            filter: drop-shadow(0 6px 10px rgba(20, 30, 60, 0.06));
+            transform-origin: center;
+            transition: transform .18s ease, box-shadow .18s ease;
+            position: relative;
+        }
+
+        .star svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .star .num {
+            position: absolute;
+            font-weight: 700;
+            font-size: 18px;
+            pointer-events: none;
+            user-select: none;
+            transform: translateY(-2px);
+        }
+
+        .star:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 14px 28px rgba(15, 25, 50, 0.08);
+            cursor: default;
+        }
+
+
+        .c0 {
+            background: linear-gradient(180deg, rgb(252, 237, 210), rgb(243, 213, 157));
+        }
+
+        .c1 {
+            background: linear-gradient(180deg, pink, pink);
+        }
+
+        .c2 {
+            background: linear-gradient(180deg, rgb(167, 219, 167), rgb(153, 228, 153));
+        }
+
+        .c3 {
+            background: linear-gradient(180deg, rgb(173, 173, 219), rgb(175, 175, 228));
+        }
+
+        .c4 {
+            background: linear-gradient(180deg, rgb(219, 208, 187), rgb(245, 222, 180));
+        }
+
+        .c5 {
+            background: linear-gradient(180deg, rgb(204, 161, 204), rgb(236, 196, 236));
+        }
+
+        .c6 {
+            background: linear-gradient(180deg, rgb(230, 182, 182), rgb(240, 182, 182));
+        }
+
+        .c7 {
+            background: linear-gradient(180deg, rgb(196, 148, 148), rgb(224, 168, 168));
+        }
+
+        .c8 {
+            background: linear-gradient(180deg, rgb(183, 248, 183), rgb(158, 224, 158));
+        }
+
+        .c9 {
+            background: linear-gradient(180deg, rgb(250, 250, 187), #f0f0ad);
+        }
+
+
+        @media (max-width:720px) {
+            :root {
+                --star-size: 48px;
+                --gap: 10px;
+            }
+
+            .clouds {
+                height: 120px
+            }
+
+            .cloud {
+                width: 200px;
+                height: 70px
+            }
+
+            .star-wrap {
+                height: 120px
+            }
+
+            .star-wrap::before {
+                height: 64px
+            }
+
+            .star {
+                margin-top: 64px
+            }
+
+            .star .num {
+                font-size: 14px
+            }
+        }
+
+
+        .title {
+            text-align: center;
+            margin-bottom: 6px;
+            padding-top: 6px;
+            font-size: 20px;
+            font-weight: 700;
+            color: rgb(30, 30, 116);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgb(66, 66, 99);
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+
+        .note {
+            text-align: center;
+            color: rgb(113, 113, 136);
+            font-size: 12px;
+            margin-top: 12px;
+
+        }
+
+        .h1 {
+            text-align: center;
+            font-size: 4rem;
+            margin: 20px 0;
+            font-weight: bold;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .table-card {
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: rgb(245, 243, 243);
+            min-height: 200px;
+        }
+
+        .table-card h3 {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .table-card img {
+            max-height: 250px;
+            margin-top: 15px;
+        }
+
+        .table-card p {
+            font-size: 30px;
+        }
+
+        .one {
+            background: lightseagreen;
+            color: black;
+        }
+
+        .two {
+            background: lightcoral;
+            color: black;
+        }
+
+        .three {
+            background: palegreen;
+            color: black;
+        }
+
+        .four {
+            background: aqua;
+            color: black;
+        }
+
+        .five {
+            background: orangered;
+            color: black;
+        }
+
+        .six {
+            background: yellow;
+            color: black;
+        }
+
+        .seven {
+            background: lightskyblue;
+            color: black;
+        }
+
+        .eight {
+            background: rgb(117, 219, 117);
+            color: black;
+        }
+
+        .nine {
+            background: rgb(212, 90, 90);
+            color: black;
+        }
+
+        .ten {
+            background: rgb(68, 68, 238);
+            color: black;
+        }
+
+        .eleven {
+            background: burlywood;
+            color: black;
+        }
+
+        .twelve {
+            background: chocolate;
+            color: black;
+        }
+
+        .color-card {
+            background: rgb(247, 245, 245);
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform .18s ease, box-shadow .18s ease;
+            user-select: none;
+        }
+
+        .color-card:focus,
+        .color-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(16, 24, 40, 0.12);
+            outline: none;
+        }
+
+        .splat {
+            width: 100%;
+            max-width: 120px;
+            height: auto;
+            margin: 0 auto 10px;
+            display: block;
+        }
+
+        .icon-svg {
+            width: 56px;
+            height: 56px;
+            margin: 6px auto 8px;
+            display: block;
+        }
+
+        .color-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .chart-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .grid-wrap {
+            gap: 18px;
+
+        }
+
+        #kids-zone-poems {
+            --rainbow: linear-gradient(120deg, rgba(255, 179, 186, 0.35), rgba(255, 223, 186, 0.35), rgba(255, 255, 186, 0.35), rgba(186, 255, 201, 0.35), rgba(186, 225, 255, 0.35));
+            background: var(--rainbow);
+            padding: 3rem 0;
+            isolation: isolate
+        }
+
+        .cloud-layer {
+            position: absolute;
+            inset: -30% -10%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden
+        }
+
+        .cloud {
+            position: absolute;
+            width: 220px;
+            height: 120px;
+            background: rgb(201, 201, 240);
+            border-radius: 60px;
+            box-shadow: 60px 10px 0 10px rgb(247, 244, 236), 120px 15px 0 0 rgb(250, 242, 242), -50px 15px 0 10px rgb(252, 248, 248);
+            opacity: .6;
+            filter: drop-shadow(0 8px 20px rgba(0, 0, 0, .08));
+            animation: float 24s linear infinite
+        }
+
+        .cloud:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            transform: scale(1);
+            animation-duration: 7s
+        }
+
+        .cloud:nth-child(2) {
+            top: 35%;
+            left: 70%;
+            transform: scale(.9);
+            animation-duration: 30s
+        }
+
+        .cloud:nth-child(3) {
+            top: 60%;
+            left: 20%;
+            transform: scale(1.2);
+            animation-duration: 34s
+        }
+
+        .cloud:nth-child(4) {
+            top: 15%;
+            left: 55%;
+            transform: scale(1.1);
+            animation-duration: 28s
+        }
+
+        .cloud:nth-child(5) {
+            top: 75%;
+            left: 80%;
+            transform: scale(.8);
+            animation-duration: 32s
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateX(0)rotate(0deg)
+            }
+
+            50% {
+                transform: translateX(-30px)rotate(2deg)
+            }
+
+            100% {
+                transform: translateX(0)rotate(0deg)
+            }
+        }
+
+        .section-title {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: .5px;
+            margin-bottom: 1.25rem
+        }
+
+        .section-subtitle {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            opacity: .85;
+            margin-bottom: 2rem;
+            font-weight: 500
+        }
+
+        .poem-card {
+            border: 0;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+            background: rgba(255, 255, 255, .85);
+            backdrop-filter: blur(4px)
+        }
+
+        .poem-card .card-header {
+            border: 0;
+            font-weight: 700;
+            font-size: 1.05rem;
+            background: transparent
+        }
+
+        .pill {
+            display: inline-block;
+            padding: .25rem .65rem;
+            border-radius: 999px;
+            font-size: .75rem;
+            font-weight: 700;
+            background: rgba(255, 255, 255, .9)
+        }
+
+        .video-card {
+            border: 0;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+            background: rgba(255, 255, 255, .9)
+        }
+
+        .video-card video {
+            width: 100%;
+            height: auto;
+            display: block
+        }
+
+        .badge-pink {
+            background: pink
+        }
+
+        .badge-peach {
+            background: peachpuff
+        }
+
+        .badge-yellow {
+            background: rgb(252, 252, 185)
+        }
+
+        .badge-mint {
+            background: rgb(164, 247, 219)
+        }
+
+        .badge-sky {
+            background: rgb(176, 176, 241)
+        }
+
+        .collapse-inner {
+            background: rgba(255, 255, 255, .65);
+            border-top: 1px dashed rgba(0, 0, 0, .08);
+            border-radius: 0 0 1.25rem 1.25rem
+        }
+
+        .btn-soft {
+            border-radius: 999px;
+            font-weight: 700;
+            border: 0;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, .06)
+        }
+
+
+
+        .animal-section {
+            background: url(./forest/pexels-dzeninalukac-330208.jpg) no-repeat center center/cover;
+            position: relative;
+            color: white;
+        }
+
+        .animal-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+        }
+
+        .animal-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .animal-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .animal-card:hover {
+            transform: scale(1.05);
+        }
+
+        .animal-card img {
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .animal-card h5 {
+            font-weight: bold;
+            color: rgb(43, 42, 42);
+        }
+
+
+        .veg-card {
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2b7a0b;
+        }
+
+
+        .gallery-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .word-grid {
+            display: grid;
+            gap: 4px;
+            border: 2px solid #ccc;
+            padding: 8px;
+            background: #fdfdfd;
+            border-radius: 12px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+            width: fit-content;
+        }
+
+        .cell {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            user-select: none;
+        }
+
+        .cell:hover {
+            background: #e8f5e9;
+            transform: scale(1.1);
+        }
+
+        .highlight {
+            background: #ffeb3b !important;
+        }
+
+        .found {
+            background: #4caf50 !important;
+            color: #fff;
+        }
+
+
+        #word-list .word-item {
+            cursor: pointer;
+            padding: 4px 6px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        #word-list .word-item:hover {
+            background: #f0f0f0;
+        }
+
+        #word-list .word-item.found {
+            text-decoration: line-through;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+
+        #win-message h4 {
+            animation: zoomIn 0.8s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+
+        body {
+            background: #f8f9fa;
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: contain;
+            background: transparent;
+        }
+
+        .card {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .veges-game {
+            margin-left: 3rem;
+        }
+
+        .days-months-section {
+            padding: 60px 20px;
+            background: #f0f8ff;
+        }
+
+        .tree-box {
+            background: #fff8e7;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .tree-box:hover {
+            transform: scale(1.03);
+        }
+
+        .tree {
+            padding-top: 1rem;
+            background: #fff8e7;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .title {
+            font-family: 'Baloo', cursive;
+            color: #f97f24;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .list-item {
+            background: #ff6f61;
+            color: #fff;
+            margin: 15px auto;
+            padding: 15px 30px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 22px;
+            width: 200px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .list-item:hover {
+            transform: scale(1.1);
+            background: #ff8a65;
+        }
+
+        @media (max-width: 768px) {
+            .list-item {
+                width: 180px;
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600&display=swap');
+
+
+
+        .worksheet {
+            background: #fff;
+            border-radius: 25px;
+            padding: 40px 60px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+            max-width: 1100px;
+            width: 95%;
+            display: flex;
+            gap: 30px;
+            margin: 0 auto;
+        }
+
+        .questions {
+            flex: 2;
+        }
+
+        h2 {
+            text-align: center;
+            color: #e91e63;
+            margin-bottom: 25px;
+            font-size: 32px;
+        }
+
+        h3 {
+            color: #1976d2;
+            margin: 15px 0 10px;
+            font-size: 26px;
+        }
+
+        .problem {
+            font-size: 22px;
+            margin: 12px 0;
+        }
+
+        input {
+            width: 70px;
+            padding: 8px;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 10px;
+            border: 2px solid #ff80ab;
+
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            font-size: 20px;
+            border: none;
+            border-radius: 12px;
+            background: #ff4081;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e91e63;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .cartoon {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cartoon img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+                <img src="./WhatsApp Image 2025-08-29 at 13.34.08_3d84adc3.jpg" alt="Kids Zone Logo">
+                Kids Zone
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item" data-aos="zoom-in"><a class="nav-link " href="./index.html">Home</a></li>
+                    <li class="nav-item" data-aos="zoom-in" data-aos-delay="100"><a class="nav-link "
+                            href="./about.html">About
+                            Us</a></li>
+                    <li class="nav-item" data-aos="zoom-in" data-aos-delay="200"><a class="nav-link "
+                            href="./contact.html">Contact
+                            Us</a></li>
+                    <li class="nav-item dropdown" data-aos="zoom-in" data-aos-delay="300">
+                        <a class="nav-link dropdown-toggle" href="./services.html" id="servicesDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#alphabetCard">🔤 Learn Alphabets</a></li>
+                            <li><a class="dropdown-item" href="#numbers">🔢 Numbers & Tables</a></li>
+                            <li><a class="dropdown-item" href="#rhymes">🎶 Nursery Rhymes</a></li>
+                            <li><a class="dropdown-item" href="#colors">🌈 Colors Learning</a></li>
+                            <li><a class="dropdown-item" href="#animals">🐒 Animals Learning</a></li>
+                            <li><a class="dropdown-item" href="#vegetables">🥕 Vegetables Learning</a></li>
+                            <li><a class="dropdown-item" href="#days">📅 Days & Months</a></li>
+                            <li><a class="dropdown-item" href="#math">➕➖ Math Fun</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <section class="hero" data-aos="fade-up">
+        <h1>Welcome to Kids Zone - Play, Learn & Celebrate Fun</h1>
+        <p>Kids Zone is the ultimate play destination! Safe, fun, and exciting indoor play areas, creative classes, and
+            epic birthday parties for kids.</p>
+        <a href="https://www.kidszone.ae" target="_blank">Visit kidszone.ae</a>
+    </section>
+
+
+
+    <section id="alphabetCard" class="container my-5" data-aos="fade-up">
+
+
+
+
+        <body class="p-4">
+
+            <div class="container">
+                <h2 class="text-center mb-4">🔤Learn Alphabets A-Z</h2>
+                <div class="row g-4 justify-content-center">
+
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-1">
+                            <h4>A a</h4>
+                            <p>A for Apple</p>
+                            <img src="./ABCD/apple.jpeg" class="card-img" alt="Apple">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-2">
+                            <h4>B b</h4>
+                            <p>B for Ball</p>
+                            <img src="./ABCD/ball.jpeg" class="card-img" alt="Ball">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-3">
+                            <h4>C c</h4>
+                            <p>C for Cat</p>
+                            <img src="./ABCD/cat.jpeg" class="card-img" alt="Cat">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-4">
+                            <h4>D d</h4>
+                            <p>D for Dog</p>
+                            <img src="./ABCD/dog.jpeg" class="card-img" alt="Dog">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-5">
+                            <h4>E e</h4>
+                            <p>E for Elephant</p>
+                            <img src="./ABCD/elephant.jpeg" class="card-img" alt="Elephant">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-6">
+                            <h4>F f</h4>
+                            <p>F for Fish</p>
+                            <img src="./ABCD/fish.jpeg" class="card-img" alt="Fish">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-7">
+                            <h4>G g</h4>
+                            <p>G for Grapes</p>
+                            <img src="./ABCD/download.jpeg" class="card-img" alt="Grapes">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-8">
+                            <h4>H h</h4>
+                            <p>H for Hen</p>
+                            <img src="./ABCD/hen.jpeg" class="card-img" alt="Hen">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-1">
+                            <h4>I i</h4>
+                            <p>I for Ice Cream</p>
+                            <img src="./ABCD/ice.jpeg" class="card-img" alt="Ice Cream">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-2">
+                            <h4>J j</h4>
+                            <p>J for Jug</p>
+                            <img src="./ABCD/jug.jpeg" class="card-img" alt="Jug">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-3">
+                            <h4>K k</h4>
+                            <p>K for Kite</p>
+                            <img src="./ABCD/kite.png" class="card-img" alt="Kite">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-4">
+                            <h4>L l</h4>
+                            <p>L for Lion</p>
+                            <img src="./ABCD/lion.jpeg" class="card-img" alt="Lion">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-5">
+                            <h4>M m</h4>
+                            <p>M for Mango</p>
+                            <img src="./ABCD/mango.jpeg" class="card-img" alt="Mango">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-6">
+                            <h4>N n</h4>
+                            <p>N for Nest</p>
+                            <img src="./ABCD/nest.jpeg" class="card-img" alt="Nest">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-7">
+                            <h4>O o</h4>
+                            <p>O for Orange</p>
+                            <img src="./ABCD/orange.jpeg" class="card-img" alt="Orange">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-8">
+                            <h4>P p</h4>
+                            <p>P for Parrot</p>
+                            <img src="./ABCD/parrot.jpeg" class="card-img" alt="Parrot">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-1">
+                            <h4>Q q</h4>
+                            <p>Q for Queen</p>
+                            <img src="./ABCD/queen.jpeg" class="card-img" alt="Queen">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-2">
+                            <h4>R r</h4>
+                            <p>R for Rabbit</p>
+                            <img src="./ABCD/rabbit.jpeg" class="card-img" alt="Rabbit">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-3">
+                            <h4>S s</h4>
+                            <p>S for Sun</p>
+                            <img src="./ABCD/sun.jpeg" class="card-img" alt="Sun">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-4">
+                            <h4>T t</h4>
+                            <p>T for Tree</p>
+                            <img src="./ABCD/tree.jpeg" class="card-img" alt="Tree">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-5">
+                            <h4>U u</h4>
+                            <p>U for Umbrella</p>
+                            <img src="./ABCD/umbrella.jpeg" class="card-img" alt="Umbrella">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-6">
+                            <h4>V v</h4>
+                            <p>V for Van</p>
+                            <img src="./ABCD/van.jpeg" class="card-img" alt="Van">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-7">
+                            <h4>W w</h4>
+                            <p>W for Wall</p>
+                            <img src="./ABCD/wall.jpeg" class="card-img" alt="Wall">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-8">
+                            <h4>X x</h4>
+                            <p>X for Xylophone</p>
+                            <img src="./ABCD/xylophone.png" class="card-img" alt="Xylophone">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-1">
+                            <h4>Y y</h4>
+                            <p>Y for Yak</p>
+                            <img src="./ABCD/yak.png" class="card-img" alt="Yak">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-duration="800"
+                        data-aos-easing="ease-out-back">
+                        <div class="cloud-card bg-2">
+                            <h4>Z z</h4>
+                            <p>Z for Zebra</p>
+                            <img src="./ABCD/zebra.jpeg" class="card-img" alt="Zebra">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </body>
+    </section>
+
+
+
+
+
+    <section id="numbers" class="container" data-aos="fade-up">
+        <h2 class="section-title">🔢 Numbers & Tables</h2>
+        <p>Counting 1-100 and Tables from 2 to 5.</p>
+
+
+        <div class="page" role="main" aria-label="Numbers one to one hundred">
+            <div class="title">Counting 1 — 100</div>
+            <div class="subtitle"></div>
+
+            <div class="clouds" aria-hidden="true">
+                <div class="cloud" style="transform:translateY(6px) scale(1.05)"></div>
+                <div class="cloud" style="transform:translateY(0)"></div>
+                <div class="cloud" style="transform:translateY(10px) scale(0.95)"></div>
+            </div>
+
+            <div id="grid" class="grid" aria-hidden="false"></div>
+
+            <div class="note">⭐⭐⭐⭐⭐⭐⭐⭐</div>
+        </div>
+
+        <script>
+
+            const grid = document.getElementById('grid');
+            const total = 100;
+            const cols = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--cols')) || 10;
+            const paletteClasses = ['c0', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9'];
+
+            for (let i = 1; i <= total; i++) {
+                const wrap = document.createElement('div');
+                wrap.className = 'star-wrap';
+
+                const s = document.createElement('div');
+                s.className = 'star ' + paletteClasses[(i - 1) % paletteClasses.length];
+
+                s.innerHTML = `
+        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <filter id="shine${i}" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="0.8" result="blur"/>
+              <feOffset dx="0" dy="1" result="off"/>
+              <feMerge><feMergeNode in="off"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <path filter="url(#shine${i})" d="M50 6 L61 38 L95 38 L67 58 L78 90 L50 70 L22 90 L33 58 L5 38 L39 38 Z"
+                stroke="rgba(255,255,255,0.6)" stroke-width="1" fill="rgba(255,255,255,0.12)"/>
+        </svg>
+        <div class="num" aria-hidden="false">${i}</div>
+      `;
+                wrap.appendChild(s);
+                grid.appendChild(wrap);
+            }
+        </script>
+
+
+        <div class="container">
+            <h1 class="h1">Times Tables</h1>
+            <div class="row">
+
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="table-card one">
+                        <h3>ONE</h3>
+                        <p>1 × 1 = 1<br>1 × 2 = 2<br>1 × 3 = 3<br>1 × 4 = 4<br>1 × 5 = 5<br>1 × 6 = 6<br>1 × 7 =
+                            7<br>1 × 8 = 8<br>1 × 9 = 9<br>1 × 10 = 10</p>
+                        <img src="./TABLE/calf-removebg-preview.png" alt="calf">
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="table-card two">
+                        <h3>TWO</h3>
+                        <p>2 × 1 = 2<br>2 × 2 = 4<br>2 × 3 = 6<br>2 × 4 = 8<br>2 × 5 = 10<br>2 × 6 = 12<br>2 × 7 =
+                            14<br>2 × 8 = 16<br>2 × 9 = 18<br>2 × 10 = 20</p>
+                        <img src="./TABLE/tiger-removebg-preview.png" alt="tiger">
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="table-card three">
+                        <h3>THREE</h3>
+                        <p>3 × 1 = 3<br>3 × 2 = 6<br>3 × 3 = 9<br>3 × 4 = 12<br>3 × 5 = 15<br>3 × 6 = 18<br>3 × 7 =
+                            21<br>3 × 8 = 24<br>3 × 9 = 27<br>3 × 10 = 30</p>
+                        <img src="./TABLE/po-removebg-preview.png" alt="po">
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="table-card four">
+                        <h3>FOUR</h3>
+                        <p>4 × 1 = 4<br>4 × 2 = 8<br>4 × 3 = 12<br>4 × 4 = 16<br>4 × 5 = 20<br>4 × 6 = 24<br>4 × 7 =
+                            28<br>4 × 8 = 32<br>4 × 9 = 36<br>4 × 10 = 40</p>
+                        <img src="./TABLE/owl-removebg-preview.png" alt="owl">
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="table-card five">
+                        <h3>FIVE</h3>
+                        <p>5 × 1 = 5<br>5 × 2 = 10<br>5 × 3 = 15<br>5 × 4 = 20<br>5 × 5 = 25<br>5 × 6 = 30<br>5 × 7 =
+                            34<br>5 × 8 = 40<br>5 × 9 = 45<br>5 × 10 = 50</p>
+                        <img src="./TABLE/monkey-removebg-preview.png" alt="monkey">
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="table-card six">
+                        <h3>SIX</h3>
+                        <p>6 × 1 = 6<br>6 × 2 = 12<br>6 × 3 = 18<br>6 × 4 = 24<br>6 × 5 = 30<br>6 × 6 = 36<br>6 × 7 =
+                            42<br>6 × 8 = 48<br>6 × 9 = 54<br>6 × 10 = 60</p>
+                        <img src="./TABLE/raccoon-removebg-preview.png" alt="raccoon">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="table-card seven">
+                        <h3>SEVEN</h3>
+                        <p>7 × 1 = 7<br>7 × 2 = 14<br>7 × 3 = 21<br>7 × 4 = 28<br>7 × 5 = 35<br>7 × 6 = 42<br>7 × 7
+                            =
+                            49<br>7 × 8 = 56<br>7 × 9 = 63<br>7 × 10 = 70</p>
+                        <img src="./TABLE/poo-removebg-preview.png" alt="poo">
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="table-card eight">
+                        <h3>EIGHT</h3>
+                        <p>8 × 1 = 8<br>8 × 2 = 16<br>8 × 3 = 24<br>8 × 4 = 32<br>8 × 5 = 40<br>8 × 6 = 48<br>8 × 7 =
+                            56<br>8 × 8 = 64<br>8 × 9 = 72<br>8 × 10 = 80</p>
+                        <img src="./TABLE/fox-removebg-preview.png" alt="Fox">
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="table-card nine">
+                        <h3>NINE</h3>
+                        <p>9 × 1 = 9<br>9 × 2 = 18<br>9 × 3 = 27<br>9 × 4 = 36<br>9 × 5 = 45<br>9 × 6 = 54<br>9 × 7 =
+                            63<br>9 × 8 = 72<br>9 × 9 = 81<br>9 × 10 = 90 </p>
+                        <img src="./TABLE/snake-removebg-preview.png" alt="snake">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="table-card ten">
+                        <h3>TEN</h3>
+                        <p>10 × 1 = 10<br>10 × 2 = 20<br>10 × 3 = 30<br>10 × 4 = 40<br>10 × 5 = 50<br>10 × 6 =
+                            60<br>10 × 7 = 70<br>10 × 8 = 80<br>10 × 9 = 90<br>10 × 10 = 100</p>
+                        <img src="./TABLE/cub-removebg-preview.png" alt="cub">
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="table-card eleven">
+                        <h3>ELEVEN</h3>
+                        <p>11 × 1 = 11<br>11 × 2 = 22<br>11 × 3 = 33<br>11 × 4 = 44<br>11 × 5 = 55<br>11 × 6 = 66<br>11
+                            × 7 =
+                            77<br>11 × 8 = 88<br>11 × 9 = 99<br>11 × 10 = 110</p>
+                        <img src="./TABLE/giraffe-removebg-preview.png" alt="giraffe">
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="table-card twelve">
+                        <h3>TWELVE</h3>
+                        <p>12 × 1 = 12<br>12 × 2 = 24<br>12 × 3 = 36<br>12 × 4 = 48<br>12 × 5 = 60<br>12 × 6 = 72<br>12
+                            × 7 =
+                            84<br>12 × 8 = 96<br>12 × 9 = 108<br>12 × 10 = 120</p>
+                        <img src="./TABLE/kangaroo-removebg-preview.png" alt="kangaroo">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $(".table-card").hover(
+                    function () { $(this).css("transform", "scale(1.05)"); },
+                    function () { $(this).css("transform", "scale(1)"); }
+                );
+            });
+        </script>
+
+    </section>
+
+    <section id="rhymes" class="position-relative overflow-hidden">
+        <div class="cloud-layer">
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+        </div>
+        <div class="container position-relative" style="z-index:1">
+            <h2 class="section-title display-6" data-aos="fade-down">Nursery Rhymes &amp; learning Poems</h2>
+            <p class="section-subtitle lead" data-aos="fade-up" data-aos-delay="80">Sing, Smile, and learn with fun
+                Nursery Rhymes ✨</p>
+            <div class="mb-5">
+                <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+
+                    <span class="pill" data-aos="zoom-in">Kids Zone — Rhymes</span>
+                </div>
+
+                <div class="row g-3">
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="0">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>Twinkle, Twinkle, Little Star</span>
+                                <span class="pill badge-sky">Popular</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">🌈let's read the Rhymes&amp; enjoy a lovely picture!.🌈</p>
+                                <button class="btn btn-soft btn-primary px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem1" aria-expanded="false"
+                                    aria-controls="poem1">Open Card</button>
+                            </div>
+                            <div id="poem1" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        Twinkle, twinkle, little star, <br>
+                                        How I wonder what you are! <br>
+                                        Up above the world so high, <br>
+                                        Like a diamond in the sky.
+                                    </p>
+                                    <img src="./POEMS/star.jpeg" alt="twinkle poem" class="img-fluid rounded mt-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="30">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>Baa, Baa, Black Sheep</span>
+                                <span class="pill badge-mint">Classic</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">Sing along with the poems &amp; enjoy the art!</article>.</p>
+                                <button class="btn btn-soft btn-success px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem2" aria-expanded="false"
+                                    aria-controls="poem2">Open Card</button>
+                            </div>
+                            <div id="poem2" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        Baa, baa, black sheep, <br>
+                                        Have you any wool? <br>
+                                        Yes sir, yes sir, <br>
+                                        Three bags full; <br>
+                                        One for the master, <br>
+                                        And one for the dame, <br>
+                                        And one for the little boy, who lives down the lane.
+                                    </p>
+                                    <img src="./POEMS/baa baa.jfif" alt="baa baa black sheep"
+                                        class="img-fluid rounded mt-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="60">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>Humpty Dumpty</span>
+                                <span class="pill badge-peach">All Time</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small"> Sing along little star, shining bright 🌟🎵</p>
+                                <button class="btn btn-soft btn-warning px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem3" aria-expanded="false"
+                                    aria-controls="poem3">Open Card</button>
+                            </div>
+                            <div id="poem3" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        Humpty Dumpty sat on a wall, <br>
+                                        Humpty Dumpty had a great fall, <br>
+                                        All the king's horses and all the king's men, <br>
+                                        Couldn't put Humpty together again.
+                                    </p>
+                                    <img src="./POEMS/humpty.jfif" alt="humpty dumpty" class="img-fluid rounded mt-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="90">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>Mary Had a Little Lamb</span>
+                                <span class="pill badge-yellow">Gentle</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">Clap your hands, the music is fun 👏🎶</p>
+                                <button class="btn btn-soft btn-info px-3 py-2" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#poem4" aria-expanded="false" aria-controls="poem4">Open
+                                    Card</button>
+                            </div>
+                            <div id="poem4" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        Mary had a little lamb, <br>
+                                        Its fleece was white as snow; <br>
+                                        And everywhere that Mary went, <br>
+                                        The lamb was sure to go.
+                                    </p>
+                                    <img src="./POEMS/mary.jfif" alt="Mary had a little lamb"
+                                        class="img-fluid rounded mt-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="120">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>Row, Row, Row Your Boat</span>
+                                <span class="pill badge-mint">Sing Along</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">Jump up high, touch the sky ☁🦋</p>
+                                <button class="btn btn-soft btn-primary px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem5" aria-expanded="false"
+                                    aria-controls="poem5">Open Card</button>
+                            </div>
+                            <div id="poem5" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        Row, row, row your boat, <br>
+                                        Gently down the stream. <br>
+                                        Merrily, merrily, merrily, merrily, <br>
+                                        Life is but a dream.
+                                    </p>
+                                    <img src="./POEMS/row row.jfif" alt="row your boat" class="img-fluid rounded mt-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>The Wheels on the Bus</span>
+                                <span class="pill badge-peach">Movement</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">Twinkle and giggle, let’s dance together ✨💃</p>
+                                <button class="btn btn-soft btn-success px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem6" aria-expanded="false"
+                                    aria-controls="poem6">Open Card</button>
+                            </div>
+                            <div id="poem6" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        The wheels on the bus go round and round, <br>
+                                        Round and round, <br>
+                                        Round and round. <br>
+                                        The wheels on the bus go round and round, <br>
+                                        All through the town.
+                                    </p>
+                                    <img src="./POEMS/wheels bus.jfif" alt="wheels on the bus"
+                                        class="img-fluid rounded mt-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="180">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>Old MacDonald Had a Farm</span>
+                                <span class="pill badge-yellow">Animals</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">Happy hearts sing the sweetest song 💖🎤</p>
+                                <button class="btn btn-soft btn-warning px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem7" aria-expanded="false"
+                                    aria-controls="poem7">Open Card</button>
+                            </div>
+                            <div id="poem7" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        Old MacDonald had a farm, <br>
+                                        E-I-E-I-O, <br>
+                                        And on that farm he had a cow, <br>
+                                        E-I-E-I-O. <br>
+                                        With a moo moo here, <br>
+                                        And a moo moo there, <br>
+                                        Here a moo, there a moo, <br>
+                                        Everywhere a moo moo. <br>
+                                        Old MacDonald had a farm, <br>
+                                        E-I-E-I-O.
+                                    </p>
+                                    <img src="./POEMS/old mc.jfif" alt="old macdonald" class="img-fluid rounded mt-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="210">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>Itsy Bitsy Spider</span>
+                                <span class="pill badge-mint">Action</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">Smile wide, the rainbow is near 🌈😊</p>
+                                <button class="btn btn-soft btn-primary px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem8" aria-expanded="false"
+                                    aria-controls="poem8">Open Card</button>
+                            </div>
+                            <div id="poem8" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        The itsy bitsy spider climbed up the waterspout. <br>
+                                        Down came the rain and washed the spider out. <br>
+                                        Out came the sun and dried up all the rain, <br>
+                                        And the itsy bitsy spider climbed up the spout again.
+                                    </p>
+                                    <img src="./POEMS/itsy.jfif" alt="itsy bitsy spider" class="img-fluid rounded mt-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="240">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>Little Miss Muffet</span>
+                                <span class="pill badge-peach">Short</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">Sing soft, like a butterfly’s wing 🦋🎶</p>
+                                <button class="btn btn-soft btn-success px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem9" aria-expanded="false"
+                                    aria-controls="poem9">Open Card</button>
+                            </div>
+                            <div id="poem9" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        Little Miss Muffet sat on a tuffet, <br>
+                                        Eating her curds and whey; <br>
+                                        Along came a spider who sat down beside her <br>
+                                        And frightened Miss Muffet away.
+                                    </p>
+                                    <img src="./POEMS/little.jfif" alt="little miss muffet"
+                                        class="img-fluid rounded mt-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="270">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>Jack and Jill</span>
+                                <span class="pill badge-yellow">Rhyme</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">Little dreams turn into big songs 🌟🎧</p>
+                                <button class="btn btn-soft btn-warning px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem10" aria-expanded="false"
+                                    aria-controls="poem10">Open Card</button>
+                            </div>
+                            <div id="poem10" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        Jack and Jill went up the hill, <br>
+                                        To fetch a pail of water; <br>
+                                        Jack fell down and broke his crown, <br>
+                                        And Jill came tumbling after.
+                                    </p>
+                                    <img src="./POEMS/jack.jfif" alt="jack and jill" class="img-fluid rounded mt-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>Hey Diddle Diddle</span>
+                                <span class="pill badge-mint">Playful</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">Every rhyme is a hug for you 🤗📖</p>
+                                <button class="btn btn-soft btn-primary px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem11" aria-expanded="false"
+                                    aria-controls="poem11">Open Card</button>
+                            </div>
+                            <div id="poem11" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        Hey diddle diddle, <br>
+                                        The cat and the fiddle, <br>
+                                        The cow jumped over the moon; <br>
+                                        The little dog laughed to see such fun, <br>
+                                        And the dish ran away with the spoon.
+                                    </p>
+                                    <img src="./POEMS/hey diddle.jfif" alt="hey diddle diddle"
+                                        class="img-fluid rounded mt-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="330">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>London Bridge Is Falling Down</span>
+                                <span class="pill badge-peach">Traditional</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">Sway with the breeze, hum with the bees 🍃🐝</p>
+                                <button class="btn btn-soft btn-success px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem12" aria-expanded="false"
+                                    aria-controls="poem12">Open Card</button>
+                            </div>
+                            <div id="poem12" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        London Bridge is falling down, <br>
+                                        Falling down, falling down, <br>
+                                        London Bridge is falling down, <br>
+                                        My fair lady.bridge is falling down. <br>
+                                        Build it up with silver and gold, <br>
+                                        Silver and gold, silver and gold.
+                                    </p>
+                                    <img src="./POEMS/london.jfif" alt="london bridge" class="img-fluid rounded mt-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="360">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>Three Blind Mice</span>
+                                <span class="pill badge-yellow">Short</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">Tiny feet make magical beats 👣🥁</p>
+                                <button class="btn btn-soft btn-warning px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem13" aria-expanded="false"
+                                    aria-controls="poem13">Open Card</button>
+                            </div>
+                            <div id="poem13" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        Three blind mice, <br>
+                                        See how they run; <br>
+                                        Three blind mice, <br>
+                                        See how they run. <br>
+                                        They all ran after the farmer's wife, <br>
+                                        And they all ran after the farmer's wife. <br>
+                                        Who cut off their tails with a carving knife, <br>
+                                        Did you ever see such a sight in your life?<br>
+                                    </p>
+                                    <img src="./POEMS/three blind.jfif" alt="three blind mice"
+                                        class="img-fluid rounded mt-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="390">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>Ring a Ring o' Roses</span>
+                                <span class="pill badge-mint">Play</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">Sing bright, laugh light 🌞😂</p>
+                                <button class="btn btn-soft btn-primary px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem14" aria-expanded="false"
+                                    aria-controls="poem14">Open Card</button>
+                            </div>
+                            <div id="poem14" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        Ring a ring o' roses, <br>
+                                        A pocket full of posies; <br>
+                                        A-tishoo! A-tishoo! <br>
+                                        We all fall down.
+                                    </p>
+                                    <img src="./POEMS/ring a ring.jfif" alt="ring a ring o' roses"
+                                        class="img-fluid rounded mt-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" data-aos="zoom-in" data-aos-delay="420">
+                        <div class="card poem-card">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <span>Pat-a-Cake</span>
+                                <span class="pill badge-peach">Baking Fun</span>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p class="mb-3 small">Giggles and rhymes go hand in hand 😄✍</p>
+                                <button class="btn btn-soft btn-success px-3 py-2" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#poem15" aria-expanded="false"
+                                    aria-controls="poem15">Open Card</button>
+                            </div>
+                            <div id="poem15" class="collapse">
+                                <div class="card-body collapse-inner">
+                                    <p>
+                                        Pat-a-cake, pat-a-cake baker's man <br>
+                                        Bake me a cake as fast as you can <br>
+                                        Pat it and prick it and mark it with "B" <br>
+                                        Put it in the oven for baby and me <br>
+                                        For baby and me <br>
+                                        For baby and me <br>
+                                        And there will be plenty for baby and me <br>
+                                        Pat-a-cake, pat-a-cake baker's man <br>
+                                        Bake me a cake as fast as you can <br>
+                                        Pat it and prick it and mark it with "B" <br>
+                                        Put it in the oven for baby and me <br>
+                                        For baby and me <br>
+                                        For baby and me <br>
+                                        And there will be plenty for baby and me <br>
+                                    </p>
+                                    <img src="./POEMS/pat a cake.jfif" alt="pat-a-cake" class="img-fluid rounded mt-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="mb-5">
+                <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                    <h3 class="h4 m-0" data-aos="fade-right">🦋🎶Magical Poems for Little Stars</h3>
+                    <span class="pill" data-aos="zoom-in">🌈⭐Play, Learn & Smile Everyday</span>
+                </div>
+
+                <div class="row g-3">
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/twinkle twinkle.jpeg">
+                                    <source
+                                        src="./videos/9convert.com--Twinkle-Twinkle-Little-Star-CoComelon-Nursery-Rhymes-Kids_v720P.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/9convert.com--Twinkle-Twinkle-Little-Star-CoComelon-Nursery-Rhymes-Kids_v720P.mp4"
+                                        type="video/webm">
+
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">⭐Twinkle, ⭐Twinkle, Little Star</strong>
+                                <span class="small text-muted">🎶Play directly on Kids Zone</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="30">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/download.jpeg">
+                                    <source
+                                        src="./videos/9convert.com--Baa-Baa-Black-Sheep-CoComelon-Nursery-Rhymes-Kids_v720P.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/9convert.com--Baa-Baa-Black-Sheep-CoComelon-Nursery-Rhymes-Kids_v720P.mp4"
+                                        type="video/webm">
+
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">🐑Baa, Baa, Black Sheep</strong>
+                                <span class="small text-muted">✨A timeless nursery classic</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/5 little ducks.jpeg">
+                                    <source
+                                        src="./videos/Let's Count 5 Little Ducks! 🐤 _ CoComelon Nursery Rhymes and Kids Songs _ Animals for Kids.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/Let's Count 5 Little Ducks! 🐤 _ CoComelon Nursery Rhymes and Kids Songs _ Animals for Kids.mp4"
+                                        type="video/webm">
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">Five Little 🦆Ducks</strong>
+                                <span class="small text-muted">Watch without leaving site</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="90">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/baby shark.jpeg">
+                                    <source
+                                        src="./videos/9convert.com--Baby-Shark-CoComelon-Nursery-Rhymes-Kids-Songs_v720P.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/9convert.com--Baby-Shark-CoComelon-Nursery-Rhymes-Kids-Songs_v720P.mp4"
+                                        type="video/webm">
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">Baby 🦈Shark</strong>
+                                <span class="small text-muted">fun poem for kids to enjoy</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/beach song.jpeg">
+                                    <source src="./videos/Beach Song _ CoComelon Nursery Rhymes & Kids Songs.mp4"
+                                        type="video/mp4">
+                                    <source src="./videos/Beach Song _ CoComelon Nursery Rhymes & Kids Songs.mp4"
+                                        type="video/webm">
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">⛱Beach song</strong>
+                                <span class="small text-muted">watch and enjoy</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/cobbler.jpeg">
+                                    <source
+                                        src="./videos/🎵 Cobbler Cobbler Mend My Shoes - (Official Video) - LooLoo Kids Nursery Rhymes & Kids Songs.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/🎵 Cobbler Cobbler Mend My Shoes - (Official Video) - LooLoo Kids Nursery Rhymes & Kids Songs.mp4"
+                                        type="video/webm">
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">Cobbler Cobbler Mend My 👢Shoes</strong>
+                                <span class="small text-muted">simple words, happy hearts</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="180">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/ding dong.jpeg">
+                                    <source
+                                        src="./videos/9convert.com--Ding-Dong-Bell-Nursery-Rhyme-I-Ding-Dong-Bell-I_v720P.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/9convert.com--Ding-Dong-Bell-Nursery-Rhyme-I-Ding-Dong-Bell-I_v720P.mp4"
+                                        type="video/webm">
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">Ding Dong 🔔Bell</strong>
+                                <span class="small text-muted">full of fun & laughter</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="210">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/five little animal.jpeg">
+                                    <source
+                                        src="./videos/Five Little Animals Song _ CoComelon Nursery Rhymes & Kids Songs.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/Five Little Animals Song _ CoComelon Nursery Rhymes & Kids Songs.mp4"
+                                        type="video/webm">
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">Five Little 🐰Animals</strong>
+                                <span class="small text-muted">🌈✨play directly on kids zone</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="240">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/miss muffet.jpeg">
+                                    <source
+                                        src="./videos/Little Miss Muffet _ @Cocomelon - Nursery Rhymes _ Food for Kids.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/Little Miss Muffet _ @Cocomelon - Nursery Rhymes _ Food for Kids.mp4"
+                                        type="video/webm">
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">Little Miss Muffet</strong>
+                                <span class="small text-muted">📚learnig with joy and 🎶music</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="270">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/jack and jill.jpeg">
+                                    <source
+                                        src="./videos/9convert.com--Jack-And-Jill-Nursery-Rhymes-for-Children_v720P.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/9convert.com--Jack-And-Jill-Nursery-Rhymes-for-Children_v720P.mp4"
+                                        type="video/webm">
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">Jack and Jill</strong>
+                                <span class="small text-muted">A sweet 🎶rhymes for little minds</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/wheels on the.jpeg">
+                                    <source
+                                        src="./videos/9convert.com--Wheels-on-the-Bus-CoComelon-Nursery-Rhymes-Kids_v720P.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/9convert.com--Wheels-on-the-Bus-CoComelon-Nursery-Rhymes-Kids_v720P.mp4"
+                                        type="video/webm">
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">Wheels on the 🚌Bus</strong>
+                                <span class="small text-muted">kid's ✨favourite rhymes time</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="330">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/hickory.jpeg">
+                                    <source
+                                        src="./videos/9convert.com--Hickory-Dickory-Dock-CoComelon-Nursery-Rhymes-Kids-Songs_v720P.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/9convert.com--Hickory-Dickory-Dock-CoComelon-Nursery-Rhymes-Kids-Songs_v720P.mp4"
+                                        type="video/webm">
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">Hickory Dickory Dock</strong>
+                                <span class="small text-muted">making chilhood ✨magical</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="360">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/johny johny.jpeg">
+                                    <source
+                                        src="./videos/9convert.com--Johny-Johny-Yes-Papa-CoComelon-Nursery-Rhymes-Kids_v720P.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/9convert.com--Johny-Johny-Yes-Papa-CoComelon-Nursery-Rhymes-Kids_v720P.mp4"
+                                        type="video/webm">
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">Johny Johny Yes Papa</strong>
+                                <span class="small text-muted">cute song for happy kids</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="390">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/yes yes vegetable.jpeg">
+                                    <source
+                                        src="./videos/9convert.com--Yes-Yes-Vegetables-Song-CoComelon-Nursery-Rhymes-Kids.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/9convert.com--Yes-Yes-Vegetables-Song-CoComelon-Nursery-Rhymes-Kids.mp4"
+                                        type="video/webm">
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">Yes Yes 🥔Vegetables</strong>
+                                <span class="small text-muted">learn with joy and love</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="420">
+                        <div class="card video-card">
+                            <div class="ratio ratio-16x9">
+                                <video controls preload="none" poster="./videos image/row row.jpeg">
+                                    <source
+                                        src="./videos/9convert.com--Row-Row-Row-Your-Boat-Ant-Version-CoComelon-Nursery_v720P.mp4"
+                                        type="video/mp4">
+                                    <source
+                                        src="./videos/9convert.com--Row-Row-Row-Your-Boat-Ant-Version-CoComelon-Nursery_v720P.mp4"
+                                        type="video/webm">
+                                </video>
+                            </div>
+                            <div class="card-body">
+                                <strong class="d-block mb-1">Row Row Row Your 🚤Boat</strong>
+                                <span class="small text-muted">perfect rhyme for toddlers</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <script>
+            (function () { if (window.jQuery) { $('.js-scroll-to-poems').on('click', function (e) { e.preventDefault(); var t = $('#kids-zone-poems'); if (t.length) $('html,body').animate({ scrollTop: t.offset().top - 20 }, 600); }); } })();
+            (function () { if (window.AOS && typeof AOS.init === 'function') { AOS.init({ once: true, duration: 700, offset: 40, easing: 'ease-out-cubic' }); } })();
+        </script>
+
+    </section>
+
+
+
+    <section id="colors" class="container" data-aos="fade-up">
+        <div class="container py-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <div class="chart-title">Learn Colours — 20 Colours</div>
+                    <div class="text-muted small">Click any square to see color details</div>
+                </div>
+                <div>
+                    <button id="shuffleBtn" class="btn btn-outline-primary btn-sm">Shuffle</button>
+                </div>
+            </div>
+
+
+            <div id="colorsGrid"
+                class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 grid-wrap g-3 justify-content-center">
+
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="colorModal" tabindex="-1" aria-labelledby="colorModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-dialog-centered">
+                <div class="modal-content">
+                    <div id="modalHeader" class="modal-header" style="color:#fff;">
+                        <h5 id="colorModalLabel" class="modal-title">Color</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <svg id="modalSplat" class="splat" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path fill="#ffffff"
+                                d="M100 10 C120 10 140 30 160 30 C180 30 190 50 180 68 C170 86 190 100 170 118 C150 136 160 160 140 170 C120 180 100 170 80 180 C60 190 40 180 30 160 C20 140 10 120 30 100 C50 80 40 60 60 50 C80 40 90 20 100 10Z" />
+                        </svg>
+                        <p id="modalInfo" class="mb-0">Name • HEX</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+
+            const colours = [
+                { name: "Red", hex: "#E53935", icon: "apple" },
+                { name: "Green", hex: "#43A047", icon: "leaf" },
+                { name: "Blue", hex: "#1E88E5", icon: "whale" },
+                { name: "Orange", hex: "#FB8C00", icon: "orange" },
+                { name: "Pink", hex: "#EC407A", icon: "flower" },
+                { name: "Yellow", hex: "#FDD835", icon: "sun" },
+                { name: "Black", hex: "#212121", icon: "spider" },
+                { name: "White", hex: "#FFFFFF", icon: "egg" },
+                { name: "Brown", hex: "#6D4C41", icon: "choco" },
+                { name: "Violet", hex: "#8E24AA", icon: "eggplant" },
+                { name: "Grey", hex: "#9E9E9E", icon: "elephant" },
+                { name: "Purple", hex: "#7B1FA2", icon: "grapes" },
+                { name: "Cyan", hex: "#00BCD4", icon: "fish" },
+                { name: "Lime", hex: "#CDDC39", icon: "leaf2" },
+                { name: "Teal", hex: "#00796B", icon: "shell" },
+                { name: "Magenta", hex: "#D81B60", icon: "star" },
+                { name: "Indigo", hex: "#3949AB", icon: "butterfly" },
+                { name: "Maroon", hex: "#B71C1C", icon: "book" },
+                { name: "Olive", hex: "#8D6E63", icon: "nut" },
+                { name: "Sky", hex: "#81D4FA", icon: "cloud" }
+            ];
+
+
+            const splatPath = 'M100 10 C120 10 140 30 160 30 C180 30 190 50 180 68 C170 86 190 100 170 118 C150 136 160 160 140 170 C120 180 100 170 80 180 C60 190 40 180 30 160 C20 140 10 120 30 100 C50 80 40 60 60 50 C80 40 90 20 100 10Z';
+
+
+            function makeIconSVG(iconName, fillColor, textColor = "#fff") {
+
+                switch (iconName) {
+                    case 'apple':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="32" cy="34" r="14" fill="${fillColor}" />
+                    <path d="M36 18c-3 2-6 2-8 0 0 0 1 6 4 7 3 1 4-7 4-7z" fill="${fillColor}"/>
+                  </svg>`;
+                    case 'leaf':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M52 12C34 18 28 34 12 52c18-2 34-8 40-28 2-6 0-8 0-12z" fill="${fillColor}" />
+                  </svg>`;
+                    case 'whale':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <ellipse cx="30" cy="34" rx="20" ry="12" fill="${fillColor}"/><rect x="46" y="28" width="10" height="6" rx="3" fill="${fillColor}"/>
+                  </svg>`;
+                    case 'orange':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="32" cy="32" r="14" fill="${fillColor}" />
+                    <path d="M32 18 l0 -6" stroke="#2e7d32" stroke-width="2" />
+                  </svg>`;
+                    case 'flower':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="32" cy="32" r="6" fill="${fillColor}"/>
+                    <g fill="${fillColor}">
+                      <ellipse cx="32" cy="14" rx="8" ry="6"/><ellipse cx="32" cy="50" rx="8" ry="6"/>
+                      <ellipse cx="14" cy="32" rx="6" ry="8"/><ellipse cx="50" cy="32" rx="6" ry="8"/>
+                    </g>
+                  </svg>`;
+                    case 'sun':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="32" cy="32" r="10" fill="${fillColor}"/>
+                    <g stroke="${fillColor}" stroke-width="3">
+                      <line x1="32" y1="4" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="60"/>
+                      <line x1="4" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="60" y2="32"/>
+                    </g>
+                  </svg>`;
+                    case 'spider':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="32" cy="32" r="8" fill="${fillColor}"/>
+                    <g stroke="${fillColor}" stroke-width="2"><line x1="8" y1="16" x2="26" y2="26"/><line x1="56" y1="16" x2="38" y2="26"/><line x1="8" y1="48" x2="26" y2="38"/><line x1="56" y1="48" x2="38" y2="38"/></g>
+                  </svg>`;
+                    case 'egg':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <ellipse cx="32" cy="34" rx="12" ry="16" fill="${fillColor}" />
+                  </svg>`;
+                    case 'choco':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="12" y="18" width="40" height="28" rx="4" fill="${fillColor}" />
+                  </svg>`;
+                    case 'eggplant':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <ellipse cx="34" cy="36" rx="12" ry="18" fill="${fillColor}"/><rect x="22" y="12" width="18" height="8" rx="3" fill="#2e7d32"/>
+                  </svg>`;
+                    case 'elephant':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="8" y="24" width="36" height="20" rx="6" fill="${fillColor}"/><circle cx="46" cy="30" r="10" fill="${fillColor}" />
+                  </svg>`;
+                    case 'grapes':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <g fill="${fillColor}">
+                      <circle cx="28" cy="20" r="6"/><circle cx="36" cy="24" r="6"/><circle cx="24" cy="28" r="6"/><circle cx="32" cy="32" r="6"/><circle cx="28" cy="36" r="6"/>
+                    </g>
+                  </svg>`;
+                    case 'fish':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <ellipse cx="32" cy="32" rx="16" ry="10" fill="${fillColor}"/><polygon points="48,32 60,24 60,40" fill="${fillColor}"/>
+                  </svg>`;
+                    case 'leaf2':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 44C24 24 44 12 52 8C44 18 28 26 12 44Z" fill="${fillColor}"/>
+                  </svg>`;
+                    case 'shell':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M10 44c10-22 34-26 44-12" stroke="${fillColor}" stroke-width="4" fill="none"/>
+                  </svg>`;
+                    case 'star':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <polygon points="32,8 38,28 60,28 42,40 48,60 32,48 16,60 22,40 4,28 26,28" fill="${fillColor}"/>
+                  </svg>`;
+                    case 'butterfly':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <g fill="${fillColor}"><ellipse cx="18" cy="30" rx="10" ry="8"/><ellipse cx="46" cy="30" rx="10" ry="8"/></g><rect x="30" y="24" width="4" height="16" fill="#6d4c41"/>
+                  </svg>`;
+                    case 'book':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="8" y="12" width="40" height="40" rx="2" fill="${fillColor}" />
+                    <line x1="20" y1="16" x2="20" y2="52" stroke="#fff" stroke-width="2"/>
+                  </svg>`;
+                    case 'nut':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="32" cy="32" r="12" fill="${fillColor}"/>
+                  </svg>`;
+                    case 'cloud':
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <ellipse cx="36" cy="30" rx="18" ry="10" fill="${fillColor}"/><ellipse cx="22" cy="34" rx="12" ry="8" fill="${fillColor}"/>
+                  </svg>`;
+                    default:
+                        return `<svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="32" cy="32" r="12" fill="${fillColor}" />
+                  </svg>`;
+                }
+            }
+
+            function createCardHTML(c, index) {
+
+                const name = c.name;
+                const hex = c.hex;
+                const iconSVG = makeIconSVG(c.icon, hex);
+
+                return `
+        <div class="col" data-aos="fade-up" data-aos-delay="${(index % 5) * 40}">
+          <div class="color-card h-100" role="button" tabindex="0" data-name="${name}" data-hex="${hex}" aria-label="${name} color card">
+            <svg class="splat" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="${splatPath}" fill="${hex}" />
+            </svg>
+            <div class="icon-wrap" aria-hidden="true">${iconSVG}</div>
+            <div class="color-name">${name}</div>
+          </div>
+        </div>
+      `;
+            }
+
+
+            function renderGrid(list) {
+                const grid = $('#colorsGrid');
+                grid.empty();
+                list.forEach((c, i) => {
+                    grid.append(createCardHTML(c, i));
+                });
+
+                $('.color-card').off('click').on('click', function () {
+                    const nm = $(this).data('name');
+                    const hx = $(this).data('hex');
+                    showModal(nm, hx);
+                });
+
+                $('.color-card').off('keydown').on('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        $(this).trigger('click');
+                    }
+                });
+                AOS.refresh();
+            }
+
+
+            function showModal(name, hex) {
+                $('#colorModalLabel').text(name);
+                $('#modalInfo').text(name + " • " + hex);
+                $('#modalSplat path').attr('fill', hex);
+                $('#modalHeader').css('background', hex);
+
+                const cleanHex = hex.replace('#', '');
+                const r = parseInt(cleanHex.substring(0, 2), 16);
+                const g = parseInt(cleanHex.substring(2, 4), 16);
+                const b = parseInt(cleanHex.substring(4, 6), 16);
+                const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+                $('#modalHeader').css('color', luma > 180 ? '#000' : '#fff');
+                const modal = new bootstrap.Modal(document.getElementById('colorModal'));
+                modal.show();
+            }
+
+
+            function shuffleArray(arr) {
+                for (let i = arr.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [arr[i], arr[j]] = [arr[j], arr[i]];
+                }
+            }
+
+
+            $(function () {
+                AOS.init({ duration: 700, once: true });
+                renderGrid(colours);
+
+                $('#shuffleBtn').on('click', function () {
+                    shuffleArray(colours);
+                    renderGrid(colours);
+                });
+            });
+        </script>
+    </section>
+
+
+
+
+
+
+    <section class="container my-5" id="animals">
+        <h2 class="text-center mb-4">🐾 Animal Sounds 🐾</h2>
+        <div class="row">
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="./extra/ani-name/lion.png" class="card-img-top animal-sound" alt="Lion"
+                        data-sound="extra/k pics/voice/lion.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Lion</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="./extra/k pics/ani-name/elephant.png" class="card-img-top animal-sound" alt="Elephant"
+                        data-sound="/extra/k pics/voice/elephant.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Elephant</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="./extra/k pics/ani-name/tiger.webp" class="card-img-top animal-sound" alt="Tiger"
+                        data-sound="/extra/k pics/voice/tiger.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Tiger</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/wolf.webp" class="card-img-top animal-sound" alt="Wolf"
+                        data-sound="/extra/k pics/voice/wolf.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Wolf</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/hamster.webp" class="card-img-top animal-sound" alt="Hamster"
+                        data-sound="/extra/k pics/voice/hamster.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Hamster</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/cat.webp" class="card-img-top animal-sound" alt="Cat"
+                        data-sound="/extra/k pics/voice/cat.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Cat</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/horse.webp" class="card-img-top animal-sound" alt="Horse"
+                        data-sound="/extra/k pics/voice/horse.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Horse</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/cow.webp" class="card-img-top animal-sound" alt="Cow"
+                        data-sound="/extra/k pics/voice/cow.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Cow</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/sheep.webp" class="card-img-top animal-sound" alt="Sheep"
+                        data-sound="/extra/k pics/voice/sheep.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Sheep</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/goat.webp" class="card-img-top animal-sound" alt="Goat"
+                        data-sound="/extra/k pics/voice/goat.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Goat</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/duck.webp" class="card-img-top animal-sound" alt="Duck"
+                        data-sound="/extra/k pics/voice/duck.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Duck</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/rabbit.webp" class="card-img-top animal-sound" alt="Rabbit"
+                        data-sound="/extra/k pics/voice/rabbit.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Rabbit</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/whale.webp" class="card-img-top animal-sound" alt="Whale"
+                        data-sound="/extra/k pics/voice/whale.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Whale</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/bear.webp" class="card-img-top animal-sound" alt="Bear"
+                        data-sound="/extra/k pics/voice/bear.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Bear</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/frog.webp" class="card-img-top animal-sound" alt="Frog"
+                        data-sound="/extra/k pics/voice/frog.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Frog</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/monkey.webp" class="card-img-top animal-sound" alt="Monkey"
+                        data-sound="/extra/k pics/voice/monkey.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Monkey</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/hippo.webp" class="card-img-top animal-sound" alt="Hippo"
+                        data-sound="/extra/k pics/voice/hippo.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Hippo</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/dog.webp" class="card-img-top animal-sound" alt="Dog"
+                        data-sound="/extra/k pics/voice/dog.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Dog</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/fox.webp" class="card-img-top animal-sound" alt="Fox"
+                        data-sound="/extra/k pics/voice/fox.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Fox</h5>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow rounded-4 text-center">
+                    <img src="/extra/k pics/ani-name/snake.webp" class="card-img-top animal-sound" alt="Snake"
+                        data-sound="/extra/k pics/voice/snake.mp3" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">Snake</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let currentAudio = null;
+
+        $(document).ready(function () {
+            $(".animal-sound").click(function () {
+                let soundPath = $(this).data("sound");
+
+
+                if (currentAudio) {
+                    currentAudio.pause();
+                    currentAudio.currentTime = 0;
+                }
+
+                currentAudio = new Audio(soundPath);
+                currentAudio.play();
+            });
+        });
+    </script>
+
+
+    <section id="vegetables" class="py-5">
+        <div class="container">
+            <div class="row g-4 align-items-start">
+
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="card p-4 veg-card">
+                        <h3 class="panel-title">Vegetables Gallery</h3>
+                        <p class="text-muted">Replace each image src with your own links. Hover to see name.</p>
+
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <figure class="figure">
+                                    <img src="./vegetable/tomato-removebg-preview.png" alt="Tomato" class="gallery-img">
+                                    <figcaption class="figure-caption text-center">Tomato</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-6">
+                                <figure class="figure">
+                                    <img src="./vegetable/potato-removebg-preview.png" alt="Potato" class="gallery-img">
+                                    <figcaption class="figure-caption text-center">Potato</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-6">
+                                <figure class="figure">
+                                    <img src="./vegetable/cabbage-removebg-preview.png" alt="Cabbage"
+                                        class="gallery-img">
+                                    <figcaption class="figure-caption text-center">Cabbage</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-6">
+                                <figure class="figure">
+                                    <img src="./vegetable/carrot-removebg-preview.png" alt="Carrot" class="gallery-img">
+                                    <figcaption class="figure-caption text-center">Carrot</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-6">
+                                <figure class="figure">
+                                    <img src="./vegetable/onion-removebg-preview.png" alt="Onion" class="gallery-img">
+                                    <figcaption class="figure-caption text-center">Onion</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-6">
+                                <figure class="figure">
+                                    <img src="./vegetable/mashroom-removebg-preview.png" alt="Mushroom"
+                                        class="gallery-img">
+                                    <figcaption class="figure-caption text-center">Mushroom</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="d-flex gap-2">
+                            <button id="reset-gallery" class="btn btn-outline-primary btn-sm">Reset Game</button>
+                            <button id="show-solution" class="btn btn-primary btn-sm">Show All Words</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="card p-4 veg-card">
+                        <h3 class="panel-title">Interactive Word Search Game</h3>
+                        <p class="text-muted">Find the vegetable names listed. Click a word to highlight it in the grid.
+                            When you find all, you'll see a celebration.</p>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div id="grid-wrap" class="mb-3">
+                                    <div id="word-grid" class="word-grid"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="veges-game">
+                                    <h6 class="ms-3">Words to find</h6>
+                                    <ul id="word-list" class="list-unstyled small"></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 d-flex gap-2 align-items-center">
+                            <div class="me-auto">
+                                <small class="text-muted">Difficulty: Automatic placement, responsive grid.</small>
+                            </div>
+                            <button id="shuffle" class="btn btn-outline-secondary btn-sm">Shuffle</button>
+                            <button id="rebuild" class="btn btn-secondary btn-sm">New Puzzle</button>
+                        </div>
+
+                        <div id="win-message" class="mt-3 text-center" style="display:none">
+                            <h4 class="text-success">🎉 Great! You found all vegetables!</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+
+    <script>
+        (function ($) {
+            const words = [
+                'TOMATO', 'POTATO', 'CABBAGE', 'CARROT', 'ONION', 'MUSHROOM', 'PUMPKIN', 'BROCCOLI',
+                'PEAS', 'BRINJAL', 'CAPSICUM', 'CAULIFLOWER', 'GARLIC', 'BEETROOT', 'BITTERGOURD', 'CORN', 'CUCUMBER'
+            ];
+
+            const GRID_SIZE = 14;
+            let grid = [];
+            let placedWords = [];
+
+            function createEmptyGrid() {
+                grid = [];
+                for (let r = 0; r < GRID_SIZE; r++) {
+                    const row = Array(GRID_SIZE).fill('');
+                    grid.push(row);
+                }
+            }
+
+            const directions = [
+                [0, 1], [1, 0], [0, -1], [-1, 0], [1, 1], [1, -1], [-1, 1], [-1, -1]
+            ];
+
+            function placeWord(word) {
+                const maxAttempts = 200;
+                for (let attempt = 0; attempt < maxAttempts; attempt++) {
+                    const dir = directions[Math.floor(Math.random() * directions.length)];
+                    const len = word.length;
+                    const dx = dir[0], dy = dir[1];
+                    let x = Math.floor(Math.random() * GRID_SIZE);
+                    let y = Math.floor(Math.random() * GRID_SIZE);
+
+                    const endX = x + dx * (len - 1);
+                    const endY = y + dy * (len - 1);
+                    if (endX < 0 || endX >= GRID_SIZE || endY < 0 || endY >= GRID_SIZE) continue;
+
+                    let fits = true;
+                    for (let i = 0; i < len; i++) {
+                        const cx = x + dx * i, cy = y + dy * i;
+                        const ch = grid[cy][cx];
+                        if (ch !== '' && ch !== word[i]) { fits = false; break; }
+                    }
+                    if (!fits) continue;
+
+                    for (let i = 0; i < len; i++) {
+                        const cx = x + dx * i, cy = y + dy * i;
+                        grid[cy][cx] = word[i];
+                    }
+
+                    placedWords.push({ word, x, y, dx, dy, len });
+                    return true;
+                }
+                return false;
+            }
+
+            function fillRandomLetters() {
+                const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                for (let y = 0; y < GRID_SIZE; y++) {
+                    for (let x = 0; x < GRID_SIZE; x++) {
+                        if (grid[y][x] === '') grid[y][x] = letters[Math.floor(Math.random() * letters.length)];
+                    }
+                }
+            }
+
+            function renderGrid() {
+                const $grid = $('#word-grid');
+                $grid.empty();
+                for (let y = 0; y < GRID_SIZE; y++) {
+                    for (let x = 0; x < GRID_SIZE; x++) {
+                        const id = `cell-${x}-${y}`;
+                        const $cell = $(`<div class="cell" id="${id}" data-x="${x}" data-y="${y}">${grid[y][x]}</div>`);
+                        $grid.append($cell);
+                    }
+                }
+            }
+
+            function renderWordList() {
+                const $list = $('#word-list');
+                $list.empty();
+                words.forEach(w => {
+                    const $li = $(`<li class="word-item mb-2" data-word="${w}"><i class="bi bi-dot"></i> ${w}</li>`);
+                    $li.on('click', () => { highlightWord(w); });
+                    $list.append($li);
+                });
+            }
+
+            function highlightWord(w) {
+                const found = placedWords.find(p => p.word === w);
+                if (!found) return alert('Word not placed this round. Click New Puzzle.');
+
+                clearHighlights();
+                for (let i = 0; i < found.len; i++) {
+                    const cx = found.x + found.dx * i;
+                    const cy = found.y + found.dy * i;
+                    $(`#cell-${cx}-${cy}`).addClass('highlight');
+                }
+
+                setTimeout(() => {
+                    for (let i = 0; i < found.len; i++) {
+                        const cx = found.x + found.dx * i;
+                        const cy = found.y + found.dy * i;
+                        $(`#cell-${cx}-${cy}`).removeClass('highlight').addClass('found');
+                    }
+                    markWordFound(w);
+                    checkWin();
+                }, 600);
+            }
+
+            function markWordFound(w) {
+                $('#word-list .word-item').each(function () {
+                    if ($(this).data('word') === w) {
+                        $(this).addClass('found');
+                    }
+                });
+            }
+
+            function clearHighlights() {
+                $('.cell').removeClass('highlight');
+            }
+
+            function checkWin() {
+                const found = $('#word-list .word-item.found').length;
+                if (found >= words.length) {
+                    $('#win-message').fadeIn();
+                }
+            }
+
+            function generatePuzzle() {
+                placedWords = [];
+                createEmptyGrid();
+                const shuffled = [...words].sort(() => 0.5 - Math.random());
+                shuffled.forEach(w => { placeWord(w); });
+                fillRandomLetters();
+                renderGrid();
+                renderWordList();
+                $('#win-message').hide();
+            }
+
+            function showAll() {
+                placedWords.forEach(p => {
+                    for (let i = 0; i < p.len; i++) {
+                        const cx = p.x + p.dx * i;
+                        const cy = p.y + p.dy * i;
+                        $(`#cell-${cx}-${cy}`).addClass('found');
+                    }
+                    markWordFound(p.word);
+                });
+                checkWin();
+            }
+
+            function resetGame() {
+                $('.cell').removeClass('found highlight');
+                $('#word-list .word-item').removeClass('found');
+                $('#win-message').hide();
+            }
+
+            $(function () {
+                $('#word-grid').css({ 'gridTemplateColumns': `repeat(${GRID_SIZE}, 1fr)` });
+
+                generatePuzzle();
+
+                $('#shuffle').on('click', () => {
+                    fillRandomLetters();
+                    renderGrid();
+                });
+
+                $('#rebuild').on('click', () => {
+                    generatePuzzle();
+                });
+
+                $('#show-solution').on('click', () => { showAll(); });
+
+                $('#reset-gallery').on('click', () => { resetGame(); });
+
+                $('#word-grid').on('click', '.cell', function () {
+                    const x = parseInt($(this).data('x'));
+                    const y = parseInt($(this).data('y'));
+                    const found = placedWords.find(p => {
+                        for (let i = 0; i < p.len; i++) {
+                            const cx = p.x + p.dx * i;
+                            const cy = p.y + p.dy * i;
+                            if (cx === x && cy === y) return true;
+                        }
+                        return false;
+                    });
+                    if (found) highlightWord(found.word);
+                });
+            });
+
+        })(jQuery);
+    </script>
+
+
+
+
+
+    <section id="days" class="container" data-aos="fade-up">
+        <section id="days" class="container days-months-section" data-aos="fade-up">
+            <div class="row">
+
+                <div class="col-md-6 mb-4" data-aos="fade-right">
+                    <div class="tree-box">
+                        <h2 class="title">Days of the Week</h2>
+                        <div class="list-item">Sunday</div>
+                        <div class="list-item">Monday</div>
+                        <div class="list-item">Tuesday</div>
+                        <div class="list-item">Wednesday</div>
+                        <div class="list-item">Thursday</div>
+                        <div class="list-item">Friday</div>
+                        <div class="list-item">Saturday</div>
+                    </div>
+                </div>
+
+
+                <div class="tree-box col-md-6 mb-4" data-aos="fade-left">
+                    <h2 class="title">Months of the Year</h2>
+                    <div class="row">
+                        <div class="tree-box col-6">
+
+                            <div class="list-item">January</div>
+                            <div class="list-item">February</div>
+                            <div class="list-item">March</div>
+                            <div class="list-item">April</div>
+                            <div class="list-item">May</div>
+                            <div class="list-item">June</div>
+                        </div>
+                        <div class="tree col-6">
+                            <div class="list-item">July</div>
+                            <div class="list-item">August</div>
+                            <div class="list-item">September</div>
+                            <div class="list-item">October</div>
+                            <div class="list-item">November</div>
+                            <div class="list-item">December</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+
+
+    <section id="math" class="container" data-aos="fade-up">
+        <div class="worksheet">
+
+            <div class="row questions">
+                <h2>✨ Solve The Examples ✨</h2>
+                <div class="col-6 add ">
+
+                    <h3>➕ Addition</h3>
+                    <div class="problem">
+                        <div class="number">8 + 4 =</div> <input type="number" data-answer="12">
+                    </div>
+                    <div class="problem">
+                        <div class="number">15 + 3 =</div> <input type="number" data-answer="18">
+                    </div>
+                    <div class="problem">
+                        <div class="number">11 + 5 =</div> <input type="number" data-answer="16">
+                    </div>
+                    <div class="problem">
+                        <div class="number">7 + 2 =</div><input type="number" data-answer="9">
+                    </div>
+                    <div class="problem">
+                        <div class="number">10 + 1 =</div> <input type="number" data-answer="11">
+                    </div>
+                    <div class="problem">
+                        <div class="number">9 + 6 =</div> <input type="number" data-answer="15">
+                    </div>
+                    <div class="problem">
+                        <div class="number">13 + 5 =</div><input type="number" data-answer="18">
+                    </div>
+                </div>
+                <div class="col-6 sub">
+                    <h3>➖ Subtraction</h3>
+                    <div class="problem">
+                        <div class="number">18 - 14 =</div><input type="number" data-answer="4">
+                    </div>
+                    <div class="problem">
+                        <div class="number">12 - 6 =</div> <input type="number" data-answer="6">
+                    </div>
+                    <div class="problem">
+                        <div class="number">17 - 3 =</div><input type="number" data-answer="14">
+                    </div>
+                    <div class="problem">
+                        <div class="number">11 - 3 =</div><input type="number" data-answer="8">
+                    </div>
+                    <div class="problem">
+                        <div class="number">16 - 11 =</div><input type="number" data-answer="5">
+                    </div>
+                    <div class="problem">
+                        <div class="number">19 - 7 =</div><input type="number" data-answer="12">
+                    </div>
+                    <div class="problem">
+                        <div class="number">20 - 15 =</div><input type="number" data-answer="5">
+                    </div>
+                </div>
+                <button onclick="checkAnswers()">Check Answers ✅</button>
+                <p id="result"></p>
+            </div>
+
+            <div class="cartoon">
+                <img src="./add and sub/a1.webp" alt="Cute Cartoon 1">
+                <img src="./add and sub/a2.webp" alt="Cute Cartoon 2">
+                <img src="./add and sub/a3.webp" alt="Cute Cartoon 2">
+
+            </div>
+        </div>
+
+        <script>
+            function checkAnswers() {
+                let inputs = document.querySelectorAll("input");
+                let correct = 0;
+                inputs.forEach(input => {
+                    let ans = parseInt(input.dataset.answer);
+                    if (parseInt(input.value) === ans) {
+                        input.style.borderColor = "green";
+                        correct++;
+                    } else {
+                        input.style.borderColor = "red";
+                    }
+                });
+                document.getElementById("result").innerText =
+                    `You got ${correct} out of ${inputs.length} correct! 🎉`;
+            }
+        </script>
+    </section>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+    <script>
+
+        const videos = document.querySelectorAll("video");
+
+        videos.forEach(video => {
+            video.addEventListener("play", () => {
+                videos.forEach(otherVideo => {
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+    <footer class="bg-dark text-light pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-md-3 mb-3">
+                    <h5 class="text-uppercase fw-bold">Kids Zone</h5>
+                    <p>
+                        A fun and creative learning platform for kids – play, learn and grow with us!
+                    </p>
+                </div>
+
+
+                <div class="col-md-3 mb-3">
+                    <h5 class="text-uppercase fw-bold">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="./index.html" class="text-decoration-none text-light">Home</a></li>
+                        <li><a href="./about.html"
+                                class="text-decoration-none text-light">About Us</a></li>
+                        <li><a href="./services.html" class="text-decoration-none text-light">More Services</a>
+                        </li>
+                        <li><a href="./contact.html" class="text-decoration-none text-light">Contact Us</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-md-3 mb-3">
+                    <h5 class="text-uppercase fw-bold">Learning</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-light">Alphabet</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">Numbers & Tables</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">Nursery Rhymes</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">Color Learning</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">Animal Learning</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">Vegetables Learning</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">Days & Months</a></li>
+                        <li><a href="#" class="text-decoration-none text-light">Math Fun</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-md-3 mb-3">
+                    <h5 class="text-uppercase fw-bold">Contact Us</h5>
+                    <p><i class="bi bi-geo-alt-fill"></i> Kids Zone School, Karachi</p>
+                    <p><i class="bi bi-telephone-fill"></i> +92 300 1234567</p>
+                    <p><i class="bi bi-envelope-fill"></i> info@kidszone.com</p>
+
+
+                    <div class="mt-3">
+                        <a href="#" class="text-light me-3"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-youtube fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="bg-light">
+
+
+            <div class="text-center">
+                <p class="mb-0">© 2025 Kids Zone. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+</body>
+
+
+</html>

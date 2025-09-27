@@ -1,0 +1,720 @@
+
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+}
+
+  .navbar {
+            background: rgb(248, 133, 153);
+            box-shadow: 0px 4px 15px black;
+            position: relative;
+            z-index: 1;
+            width: 100%
+        }
+
+        .navbar-brand img {
+            height: 60px;
+            animation: bounceLogo 2s infinite;
+            border-radius: 30px;
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: cornsilk;
+            margin: 5px;
+            transition: all 0.4s ease;
+        }
+
+        .nav-link:hover {
+            background: linear-gradient(90deg, rgb(247, 167, 167), rgb(233, 207, 158), rgb(226, 226, 140), rgb(146, 243, 146), rgb(122, 122, 230), rgb(203, 148, 243), rgb(240, 172, 240));
+            color: black;
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0px 0px 15px palevioletred;
+        }
+
+        .nav-link::before,
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            background: cornsilk;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .nav-link::before {
+            width: 25px;
+            height: 25px;
+            top: -10px;
+            left: 10px;
+        }
+
+        .nav-link::after {
+            width: 20px;
+            height: 20px;
+            bottom: -8px;
+            right: 15px;
+        }
+
+        @keyframes bounceLogo {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes rainbowGlow {
+            0% {
+                box-shadow: 0 0 5px red;
+            }
+
+            20% {
+                box-shadow: 0 0 10px orange;
+            }
+
+            40% {
+                box-shadow: 0 0 15px yellow;
+            }
+
+            60% {
+                box-shadow: 0 0 15px green;
+            }
+
+            80% {
+                box-shadow: 0 0 15px blue;
+            }
+
+            100% {
+                box-shadow: 0 0 20px violet;
+            }
+        }
+
+
+        .nav-link:hover {
+            animation: rainbowGlow 1.5s infinite alternate;
+        }
+
+
+:root {
+	--primary: #ff3700;
+}
+
+body {
+	background: #000000;
+	font-family: 'Poppins', sans-serif;
+
+}
+
+/* header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px 100px;
+	z-index: 10;
+} */
+
+/* .logo {
+	font-size: 40px;
+	color: orchid;
+	letter-spacing: 1px;
+	font-weight: 800;
+} */
+
+/* .nav li {
+	list-style: none;
+	margin: 0 10px;
+}
+
+.nav li a {
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 500;
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: 0, 3s;
+}
+
+.nav li:hover a {
+	color: var(--primary);
+}
+
+.search {
+	position: relative;
+	width: 300px;
+	height: 40px;
+}
+
+.search input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	color: #ffffff;
+	background: transparent;
+	border: 1 solid rgba(255, 255, 255, 0.5);
+	outline: none;
+	border-radius: 4px;
+	padding: 0 10px 0 45px !important;
+	backdrop-filter: blur(10px);
+}
+
+.search input::placeholder {
+	color: #ffffff;
+}
+
+.search i {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 10px;
+	padding-right: 10px;
+	color: #ffffff;
+	border-right: 1px solid #ffffff;
+} */
+
+.banner {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	padding: 0 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: url(./michael-rivera-N7OocKwsJ0s-unsplash.jpg);
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+	transition: 0.5s;
+	top: 10%;
+}
+
+.banner::before {
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	will-change: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.content {
+	position: relative;
+	max-width: 550px;
+	display: none;
+	visibility: hidden;
+	transform: scale(0);
+	transition: 0.5s;
+}
+
+.content.active {
+	display: block;
+	visibility: visible;
+	transform: scale(1);
+	transition: 0.5s;
+}
+
+.RYMES {
+	max-width: 250px;
+}
+
+.banner .content h4 {
+	color: rgba(255, 255, 255, 0.5);
+	font-weight: 400;
+	font-size: 30px;
+
+}
+
+.banner .content h4 span {
+	padding: 0 10px;
+	border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.banner .content h4 span:first-child {
+	padding-left: 0;
+}
+
+.banner .content h4 span:last-child {
+	border-right: none;
+}
+
+.banner .content h4 span i {
+	background: var(--primary);
+	color: #ffffff;
+	padding: 0 8px;
+	display: inline-block;
+	border-radius: 2px;
+
+}
+
+.banner .content p {
+	font-size: 1rem;
+	font-weight: 300;
+	line-height: 1.5rem;
+	color: #ffffff;
+	margin: 10px 0 20px;
+}
+
+.banner.content.button {
+	position: relative;
+}
+
+.banner.content.button a {
+	position: relative;
+	display: inline-block;
+	margin-right: 10px;
+	background: var(--primary);
+	color: #ffffff;
+	padding: 6px 20px;
+	text-decoration: none;
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+.banner.content.button a:nth-child(2) {
+	background: rgba(0, 0, 0, 0.5);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+
+}
+
+.banner.content.button a:hover:nth-child(2) {
+	background: var(--primary);
+}
+
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box; 
+}
+
+body {
+  margin: 0;
+  background-image: url('http://www.desktopwallpaperhd.net/wallpapers/18/d/andromeda-space-background-computer-images-187549.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+
+.carousel_wrapper {
+  position: relative;
+  width: 100px;
+  margin: 20px auto 0 auto;
+  perspective: 3500px;
+  
+}
+
+.carousel {
+  position: absolute;
+  width: 200%;
+  height: 70%;
+  transform-style: preserve-3d;
+  transform: rotateY(-360deg) translateZ(-412px); 
+  animation: swirl 40s steps(10000, end) infinite;
+  bottom: 50%;
+   
+}
+
+.slide {
+  position: absolute;
+  left: 20%;
+
+}
+
+.slide img {
+  width: 180px;
+  height: 230px;
+  border: 3px inset rgba(47, 115, 201, 0.75);
+  box-shadow: 0 0 15px 3px rgba(110, 72, 221, 0.9);
+  bottom: 15%;
+}
+.slide.one {
+  transform: rotateY(0deg) translateZ(412px);
+}
+.slide.two {
+  transform: rotateY(40deg) translateZ(412px);
+}
+.slide.three {
+  transform: rotateY(80deg) translateZ(412px);
+}
+.slide.four {
+  transform: rotateY(120deg) translateZ(412px);
+}
+.slide.five {
+  transform: rotateY(160deg) translateZ(412px);
+}
+.slide.six {
+  transform: rotateY(200deg) translateZ(412px);
+}
+.slide.seven {
+  transform: rotateY(240deg) translateZ(412px);
+}
+.slide.eight {
+  transform: rotateY(280deg) translateZ(412px);
+}
+.slide.nine {
+  transform: rotateY(320deg) translateZ(412px);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+  --primary: #ff3700;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background-image: url('http://www.desktopwallpaperhd.net/wallpapers/18/d/andromeda-space-background-computer-images-187549.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  z-index: 10;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 40px;
+  color: orchid;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nav li {
+  list-style: none;
+}
+
+.nav li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.nav li:hover a {
+  color: var(--primary);
+}
+
+.search {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.search input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .5);
+  outline: none;
+  border-radius: 4px;
+  padding: 0 10px 0 45px !important;
+  backdrop-filter: blur(10px);
+}
+
+.search input::placeholder {
+  color: #fff;
+}
+
+.search i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  padding-right: 10px;
+  color: #fff;
+  border-right: 1px solid #fff;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: url(./michael-rivera-N7OocKwsJ0s-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  transition: .5s;
+  top: 10%;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.banner::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+}
+
+.content {
+  position: relative;
+  max-width: 550px;
+  display: none;
+  visibility: hidden;
+  transform: scale(0);
+  transition: .5s;
+  margin: auto;
+}
+
+.content.active {
+  display: block;
+  visibility: visible;
+  transform: scale(1);
+  transition: .5s;
+}
+
+.RYMES {
+  max-width: 250px;
+  width: 100%;
+}
+
+.banner .content h4 {
+  color: rgba(255, 255, 255, .5);
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.banner .content h4 span {
+  padding: 0 10px;
+  border-right: 1px solid rgba(255, 255, 255, .5);
+}
+
+.banner .content h4 span:first-child {
+  padding-left: 0;
+}
+
+.banner .content h4 span:last-child {
+  border-right: none;
+}
+
+.banner .content h4 span i {
+  background: var(--primary);
+  color: #fff;
+  padding: 0 8px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.banner .content p {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5rem;
+  color: #fff;
+  margin: 10px 0 20px;
+}
+
+.banner .content .button {
+  position: relative;
+}
+
+.banner .content .button a {
+  position: relative;
+  display: inline-block;
+  margin: 5px;
+  background: var(--primary);
+  color: #fff;
+  padding: 6px 20px;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: .5s;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.banner .content .button a:nth-child(2) {
+  background: rgba(0, 0, 0, .5);
+  border: 1px solid rgba(255, 255, 255, .2);
+}
+
+.banner .content .button a:hover:nth-child(2) {
+  background: var(--primary);
+}
+
+.banner .content .button a:hover {
+  transform: scale(1.05);
+}
+
+.carousel_wrapper {
+  position: relative;
+  width: 70%;
+  max-width: 500px;
+  margin: 50px auto;
+  height: auto;
+  perspective: 3500px;
+}
+
+.carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateY(-360deg) translateZ(-412px);
+  animation: swirl 40s steps(10000, end) infinite;
+  bottom: 50%;
+}
+
+.slide {
+  position: absolute;
+  left: 50%;
+}
+
+.slide img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border: 3px inset rgba(47, 115, 201, .75);
+  box-shadow: 0 0 15px 3px rgba(110, 72, 221, .9);
+}
+
+.slide.one {
+  transform: rotateY(0deg) translateZ(412px);
+}
+
+.slide.two {
+  transform: rotateY(40deg) translateZ(412px);
+}
+
+.slide.three {
+  transform: rotateY(80deg) translateZ(412px);
+}
+
+.slide.four {
+  transform: rotateY(120deg) translateZ(412px);
+}
+
+.slide.five {
+  transform: rotateY(160deg) translateZ(412px);
+}
+
+.slide.six {
+  transform: rotateY(200deg) translateZ(412px);
+}
+
+.slide.seven {
+  transform: rotateY(240deg) translateZ(412px);
+}
+
+.slide.eight {
+  transform: rotateY(280deg) translateZ(412px);
+}
+
+.slide.nine {
+  transform: rotateY(320deg) translateZ(412px);
+}
+
+@keyframes swirl {
+  from {
+    transform: rotateY(-360deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+@media (max-width: 992px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .carousel_wrapper {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    font-size: 24px;
+  }
+
+  .banner .content h4 {
+    font-size: 18px;
+  }
+
+  .slide img {
+    max-width: 100px;
+  }
+
+  .search {
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+

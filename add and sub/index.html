@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Worksheet</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to bottom right, #ffd6eb, #ffeef7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .worksheet {
+      background: #fff;
+      border-radius: 25px;
+      padding: 40px 60px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      max-width: 1100px;
+      width: 95%;
+      display: flex;
+      gap: 30px;
+    }
+
+    .questions {
+      flex: 2;
+    }
+
+    h2 {
+      text-align: center;
+      color: #e91e63;
+      margin-bottom: 25px;
+      font-size: 32px;
+    }
+
+    h3 {
+      color: #1976d2;
+      margin: 15px 0 10px;
+      font-size: 26px;
+    }
+
+    .problem {
+      font-size: 22px;
+      margin: 12px 0;
+    }
+
+    input {
+      width: 70px;
+      padding: 8px;
+      font-size: 20px;
+      text-align: center;
+      border-radius: 10px;
+      border: 2px solid #ff80ab;
+      margin-left: 10px;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 25px;
+      font-size: 20px;
+      border: none;
+      border-radius: 12px;
+      background: #ff4081;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e91e63;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .cartoon {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .cartoon img {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="worksheet">
+
+    <div class="questions">
+      <h2>✨ Solve The Examples ✨</h2>
+
+      <h3>➕ Addition</h3>
+      <div class="problem">8 + 4 = <input type="number" data-answer="12"></div>
+      <div class="problem">15 + 3 = <input type="number" data-answer="18"></div>
+      <div class="problem">11 + 5 = <input type="number" data-answer="16"></div>
+      <div class="problem">7 + 2 = <input type="number" data-answer="9"></div>
+      <div class="problem">10 + 1 = <input type="number" data-answer="11"></div>
+      <div class="problem">9 + 6 = <input type="number" data-answer="15"></div>
+      <div class="problem">13 + 5 = <input type="number" data-answer="18"></div>
+
+      <h3>➖ Subtraction</h3>
+      <div class="problem">18 - 14 = <input type="number" data-answer="4"></div>
+      <div class="problem">12 - 6 = <input type="number" data-answer="6"></div>
+      <div class="problem">17 - 3 = <input type="number" data-answer="14"></div>
+      <div class="problem">11 - 3 = <input type="number" data-answer="8"></div>
+      <div class="problem">16 - 11 = <input type="number" data-answer="5"></div>
+      <div class="problem">19 - 7 = <input type="number" data-answer="12"></div>
+      <div class="problem">20 - 15 = <input type="number" data-answer="5"></div>
+
+      <button onclick="checkAnswers()">Check Answers ✅</button>
+      <p id="result"></p>
+    </div>
+
+    <div class="cartoon">
+      <img src="./a1.webp" alt="Cute Cartoon 1">
+      <img src="./a2.webp" alt="Cute Cartoon 2">
+      <img src="./a3.webp" alt="Cute Cartoon 2">
+      
+    </div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      let inputs = document.querySelectorAll("input");
+      let correct = 0;
+      inputs.forEach(input => {
+        let ans = parseInt(input.dataset.answer);
+        if (parseInt(input.value) === ans) {
+          input.style.borderColor = "green";
+          correct++;
+        } else {
+          input.style.borderColor = "red";
+        }
+      });
+      document.getElementById("result").innerText =
+        `You got ${correct} out of ${inputs.length} correct! 🎉`;
+    }
+  </script>
+</body>
+</html>
